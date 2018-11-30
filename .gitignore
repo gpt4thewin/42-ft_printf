@@ -1,0 +1,10 @@
+obj/
+*.o
+*.stackdump
+.vscode
+test.sh
+tests/
+libft/libft.a
+main.c
+libftprintf.a
+a.out

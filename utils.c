@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   project.h                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/23 19:05:02 by marvin            #+#    #+#             */
-/*   Updated: 2018/11/27 15:01:25 by juazouz          ###   ########.fr       */
+/*   Created: 2018/11/29 11:52:57 by juazouz           #+#    #+#             */
+/*   Updated: 2018/11/29 11:53:13 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PROJECT_H
-# define PROJECT_H
+#include "ft_printf.h"
 
-/*
-**	Includes.
-*/
-
-// # include <stdlib.h>
-// # include <stdio.h>
-// # include <fcntl.h>
-# include "libft.h"
-
-/*
-**	Defines.
-*/
-
-/*
-**	Types.
-*/
-
-/*
-**	Fillit functions.
-*/
-
-
-#endif
+void		append(char *str, size_t *pos, char c)
+{
+	if (str != NULL)
+		str[*pos] = c;
+	(*pos)++;
+}
