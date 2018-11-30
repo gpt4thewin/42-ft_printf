@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 15:05:30 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/30 15:34:15 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/30 18:18:39 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	ft_printf(const char *restrict format, ...)
 	{
 		if (format[format_pos] == '%')
 		{
+			format_pos++;
 			output_size += print_arg(format, &format_pos, ap);
 		}
 		else

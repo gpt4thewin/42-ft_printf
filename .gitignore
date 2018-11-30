@@ -8,3 +8,4 @@ libft/libft.a
 main.c
 libftprintf.a
 a.out
+*.dSYM/

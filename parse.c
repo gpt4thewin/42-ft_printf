@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 18:15:24 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/30 15:00:25 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/11/30 18:18:41 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,6 @@ void		parse_specifier(t_formatinfo *info, const char *restrict format, int *form
 		spec = spec_char;
 	else
 		exit(EXIT_FAILURE);
-
+	(*format_pos)++;
 	info->specifier = spec;
 }

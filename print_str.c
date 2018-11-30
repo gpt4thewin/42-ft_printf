@@ -1,28 +1,26 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_float.c                                      :+:      :+:    :+:   */
+/*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/30 15:02:58 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/30 15:04:53 by juazouz          ###   ########.fr       */
+/*   Created: 2018/11/30 16:32:14 by juazouz           #+#    #+#             */
+/*   Updated: 2018/11/30 16:36:43 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-**	Loads a float type variable using va_arg() and ap.
-**	Returns the number of printed characters.
-*/
-
-int		print_float(t_formatinfo *info, va_list ap)
+int			print_str(t_formatinfo *info, va_list ap)
 {
 	(void)info;
-	double	num;
+	char	*str;
+	int		len;
 
-	num = va_arg(ap, double);
-	return (0);
+	str = va_arg(ap, char*);
+	len = ft_strlen(str);
+	ft_putstr(str);
+
+	return (len);
 }
