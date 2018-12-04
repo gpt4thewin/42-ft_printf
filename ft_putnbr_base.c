@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 16:06:45 by tavelino          #+#    #+#             */
-/*   Updated: 2018/11/30 19:10:46 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/04 18:24:12 by tavelino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_convertnbr_base(int nbr, char* base, int base_len, char **str)
 	}
 	if (nbr > base_len)
 	{
-		//recursive
+		/*recursive*/
 		ft_convertnbr_base((nbr / base_len), base, base_len, str);
 	}
 	// else
@@ -34,17 +34,19 @@ void	ft_convertnbr_base(int nbr, char* base, int base_len, char **str)
 
 
 
-int	ft_putnbr_base(size_t nbr, char *base)
+int		ft_putnbr_base(size_t nbr, char *base)
 {
-	int len;
-	char str[50];
+	int 	len;
+	char 	str[50];
 	char	*str2;
 
 	str2 = str;
 	len = ft_strlen(base);
 	ft_bzero(str, sizeof(str));
 	ft_convertnbr_base(nbr, base, len, &str2);
-	//ft_strrev(str); //need to make a function to reverse before print ft_strrev.c
+	/*
+		ft_strrev(str); //need to make a function to reverse before print ft_strrev.c
+	*/
 	ft_putstr(str);
 	return (str2 - str); // return size
 }

@@ -20,7 +20,9 @@
 
 int		print_float(t_formatinfo *info, va_list ap)
 {
-	float	num;
+	double	num;
 
-	num = va_arg(ap, float);
+	num = va_arg(ap, double);
+	(void)info;
+	return (0);
 }
