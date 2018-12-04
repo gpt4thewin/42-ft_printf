@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:31:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/30 16:42:51 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/04 17:33:11 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,19 @@
 
 int		print_arg_type(t_formatinfo *formatinfo, va_list ap)
 {
-	int			(*f[SPEC_COUNT])(t_formatinfo*, va_list);
+	int			(*func[SPEC_COUNT])(t_formatinfo*, va_list);
 	int			(*print_func)(t_formatinfo*, va_list);
-	t_specifier	spec;
+	int			len;
 
 	// f[spec_int] = print_int;
 	// f[spec_uint] = print_uint;
 	// f[spec_octal] = print_octal;
 	// f[spec_hex] = print_hex;
 	// f[spec_hexup] = print_hexup;
-	f[spec_float] = print_float;
-	f[spec_str] = print_str;
-	f[spec_char] = print_char;
-	spec = formatinfo->specifier;
-	print_func = f[spec];
-
-	return (print_func(formatinfo, ap));
+	func[spec_float] = print_float;
+	func[spec_str] = print_str;
+	func[spec_char] = print_char;
+	print_func = func[formatinfo->specifier];
+	len = print_func(formatinfo, ap);
+	return (len);
 }

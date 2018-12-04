@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 23:18:06 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/22 13:28:11 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/04 16:10:10 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 /*
 **	Types.
 */
+
+typedef enum	e_bool
+{
+	false,
+	true
+}				t_bool;
 
 typedef struct	s_list
 {

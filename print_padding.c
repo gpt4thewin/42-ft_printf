@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   print_padding.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/30 16:43:05 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/04 17:34:04 by juazouz          ###   ########.fr       */
+/*   Created: 2018/12/04 17:22:53 by juazouz           #+#    #+#             */
+/*   Updated: 2018/12/04 17:36:00 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		print_char(t_formatinfo *info, va_list ap)
-{
-	(void)info;
-	int		c;
-	int		padding_size;
+/*
+**	Prints the padding characters if len < width
+**	Returns the total number of printed characters
+*/
 
-	c = va_arg(ap, int);
-	padding_size = print_padding(info, 1);
-	ft_putchar(c);
-	return (padding_size + 1);
+int		print_padding(t_formatinfo *formatinfo, int len)
+{
+	int		i;
+	char	padchar;
+
+	if (len >= formatinfo->width)
+		return (0);
+	if (formatinfo->flags & FLAG_ZERO)
+		padchar = '0';
+	else
+		padchar = ' ';
+	i = 0;
+	while (i < (formatinfo->width - len))
+	{
+		ft_putchar(padchar);
+		i++;
+	}
+	return (i);
 }

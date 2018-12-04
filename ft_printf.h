@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/30 15:34:00 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/04 17:38:34 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,9 @@ void		parse_precision(t_formatinfo *info, const char *restrict format, int *form
 void		parse_length(t_formatinfo *info, const char *restrict format, int *format_pos);
 void		parse_specifier(t_formatinfo *info, const char *restrict format, int *format_pos);
 
-int			print_arg_type(t_formatinfo *info, va_list ap);
+int			print_padding(t_formatinfo *formatinfo, int len);
+
+int			print_arg_type(t_formatinfo *formatinfo, va_list ap);
 
 int			print_int(t_formatinfo *info, va_list ap);
 int			print_uint(t_formatinfo *info, va_list ap);
