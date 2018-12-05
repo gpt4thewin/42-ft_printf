@@ -2,6 +2,7 @@ obj/
 *.o
 *.stackdump
 .vscode
+.*.swp
 test.sh
 tests/
 libft/libft.a

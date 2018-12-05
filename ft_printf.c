@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 15:05:30 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/30 18:18:39 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/05 16:14:27 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ static int	print_arg(const char *restrict format, int *format_pos, va_list ap)
 	return (print_arg_type(&formatinfo, ap));
 }
 
-int	ft_printf(const char *restrict format, ...)
+int		ft_printf(const char *restrict format, ...)
 {
 	va_list	ap;
-	int	output_size;
-	int	format_pos;
+	int		output_size;
+	int		format_pos;
 
 	va_start(ap, format);
 	format_pos = 0;
