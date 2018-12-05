@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/05 16:14:14 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/05 17:40:36 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,12 @@ void		parse_specifier(t_formatinfo *info, const char *restrict format, int *form
 int			print_padding(t_formatinfo *formatinfo, int len);
 
 int			print_arg_type(t_formatinfo *formatinfo, va_list ap);
+int			ft_nbrlen(t_formatinfo *info, long long num, int base_len);
+int			ft_unbrlen(t_formatinfo *info, unsigned long long num, int base_len);
+void		ft_putnbr_base(long long nbr, char *base);
+
+int			print_signed_number(t_formatinfo *info, va_list ap, char *base, int base_len);
+int			print_unsigned_number(t_formatinfo *info, va_list ap, char *base, int base_len);
 
 int			print_int(t_formatinfo *info, va_list ap);
 int			print_uint(t_formatinfo *info, va_list ap);
@@ -145,6 +151,5 @@ int			print_hexup(t_formatinfo *info, va_list ap);
 int			print_float(t_formatinfo *info, va_list ap);
 int			print_str(t_formatinfo *info, va_list ap);
 int			print_char(t_formatinfo *info, va_list ap);
-int			ft_nbrlen(long long num, int base_len);
 
 #endif

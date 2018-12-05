@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   print_hexup.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/30 16:06:45 by tavelino          #+#    #+#             */
-/*   Updated: 2018/12/05 16:16:56 by juazouz          ###   ########.fr       */
+/*   Created: 2018/12/05 16:38:52 by juazouz           #+#    #+#             */
+/*   Updated: 2018/12/05 19:35:48 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "ft_printf.h"
 
-static void		ft_convertnbr_base(long long nbr, char *base, int base_len)
+#define BASE		"0123456789ABCDEF"
+#define BASE_LEN	16
+
+int			print_hexup(t_formatinfo *info, va_list ap)
 {
-	if (nbr < 0)
-	{
-		ft_putchar('-');
-		nbr = -nbr;
-	}
-	if (nbr > base_len)
-	{
-		ft_convertnbr_base((nbr / base_len), base, base_len);
-	}
-	ft_putchar(base[(nbr % base_len)]);
-}
+	int	output_len;
 
-void			ft_putnbr_base(long long nbr, char *base)
-{
-	int		base_len;
-
-	base_len = ft_strlen(base);
-	ft_convertnbr_base(nbr, base, base_len);
+	output_len = print_signed_number(info, ap, BASE, BASE_LEN);
+	return (output_len);
 }

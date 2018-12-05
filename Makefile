@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/05 16:13:52 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/05 19:36:34 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,9 +28,24 @@ OBJ = $(patsubst %.c,$(ODIR)/%.o,$(_SRC))
 
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC)))
 
-_SRC =	ft_printf.c parse.c print_arg_type.c utils.c \
-		print_str.c print_float.c print_char.c \
-		print_padding.c
+_SRC =	ft_nbrlen.c \
+		ft_printf.c \
+		ft_putnbr_base.c \
+		ft_strrev.c \
+		parse.c \
+		print_arg_type.c \
+		print_char.c \
+		print_float.c \
+		print_hex.c \
+		print_hexup.c \
+		print_int.c \
+		print_uint.c \
+		print_octal.c \
+		print_padding.c \
+		print_signed_number.c \
+		print_str.c \
+		print_unsigned_number.c \
+		utils.c
 
 .PHONY: all clean fclean re
 

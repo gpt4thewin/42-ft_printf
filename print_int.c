@@ -3,42 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   print_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 16:08:48 by tavelino          #+#    #+#             */
-/*   Updated: 2018/12/05 16:07:05 by tavelino         ###   ########.fr       */
+/*   Updated: 2018/12/05 16:52:13 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-#define BASE10 "012345679"
-
-// static function to protect
-static long long		ft_casting_num(t_formatinfo *info,  va_list ap)
-{
-	long long	num;
-
-	if (info->length == len_char)
-		num = (signed char)(va_arg(ap, int));
-	else if (info->length == len_short)
-		num = (short)(va_arg(ap, int));
-	else if (info->length == len_llong)
-		num = (long long)(va_arg(ap, long long int));
-	else if (info->length == len_long)
-		num = (long)(va_arg(ap, long int));
-	else
-		num = (int)(va_arg(ap, int));
-	return (num);
-}
+#define BASE		"0123456789"
+#define BASE_LEN	10
 
 int			print_int(t_formatinfo *info, va_list ap)
 {
-	long long  	num;
-	int			nbrlen;
+	int	output_len;
 
-	num = ft_casting_num(info, ap);
-	nbrlen = ft_nbrlen(num, 10);
-	ft_putnbr_base(num, BASE10);
-	return (0);
+	output_len = print_signed_number(info, ap, BASE, BASE_LEN);
+	return (output_len);
 }
