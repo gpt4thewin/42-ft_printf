@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/05 19:36:34 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/05 20:14:59 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ _SRC =	ft_nbrlen.c \
 		ft_putnbr_base.c \
 		ft_strrev.c \
 		parse.c \
-		print_arg_type.c \
+		print_parameter.c \
 		print_char.c \
 		print_float.c \
 		print_hex.c \

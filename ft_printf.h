@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/05 17:40:36 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/05 20:14:30 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ void		parse_specifier(t_formatinfo *info, const char *restrict format, int *form
 
 int			print_padding(t_formatinfo *formatinfo, int len);
 
-int			print_arg_type(t_formatinfo *formatinfo, va_list ap);
+int			print_parameter(t_formatinfo *formatinfo, va_list ap);
 int			ft_nbrlen(t_formatinfo *info, long long num, int base_len);
 int			ft_unbrlen(t_formatinfo *info, unsigned long long num, int base_len);
 void		ft_putnbr_base(long long nbr, char *base);

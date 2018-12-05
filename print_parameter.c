@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_arg_type.c                                   :+:      :+:    :+:   */
+/*   print_parameter.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:31:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/05 19:35:24 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/05 20:14:21 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 **	Returns the number of printed characters.
 */
 
-int		print_arg_type(t_formatinfo *formatinfo, va_list ap)
+int		print_parameter(t_formatinfo *formatinfo, va_list ap)
 {
 	int			(*func[SPEC_COUNT])(t_formatinfo*, va_list);
 	int			(*print_func)(t_formatinfo*, va_list);

@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 15:05:30 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/05 16:14:27 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/05 20:18:00 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	print_arg(const char *restrict format, int *format_pos, va_list ap)
 	parse_precision(&formatinfo, format, format_pos);
 	parse_length(&formatinfo, format, format_pos);
 	parse_specifier(&formatinfo, format, format_pos);
-	return (print_arg_type(&formatinfo, ap));
+	return (print_parameter(&formatinfo, ap));
 }
 
 int		ft_printf(const char *restrict format, ...)
