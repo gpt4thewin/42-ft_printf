@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/05 20:14:30 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/05 21:28:00 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,23 @@ typedef struct	s_formatinfo	t_formatinfo;
 typedef enum	e_specifier		t_specifier;
 typedef enum	e_length		t_length;
 
+typedef	unsigned char			t_u8;
+typedef	unsigned short			t_u16;
+typedef	unsigned int			t_u32;
+typedef	unsigned long long		t_u64;
+
+typedef	char					t_8;
+typedef	short					t_16;
+typedef	int						t_32;
+typedef	long long				t_64;
+
+typedef char					t_s8;
+typedef short					t_s16;
+typedef int						t_s32;
+typedef	long					t_s64;
+typedef float					t_f32;
+typedef double					t_f64;
+
 // enum	e_flags
 // {
 // 	prepound = 0x01,
@@ -138,10 +155,9 @@ int			print_padding(t_formatinfo *formatinfo, int len);
 int			print_parameter(t_formatinfo *formatinfo, va_list ap);
 int			ft_nbrlen(t_formatinfo *info, long long num, int base_len);
 int			ft_unbrlen(t_formatinfo *info, unsigned long long num, int base_len);
-void		ft_putnbr_base(long long nbr, char *base);
+void		ft_putnbr_base(t_u64 nbr, char *base, t_bool unsignd);
 
-int			print_signed_number(t_formatinfo *info, va_list ap, char *base, int base_len);
-int			print_unsigned_number(t_formatinfo *info, va_list ap, char *base, int base_len);
+int			print_number(t_formatinfo *info, va_list ap, char *base, int base_len);
 
 int			print_int(t_formatinfo *info, va_list ap);
 int			print_uint(t_formatinfo *info, va_list ap);

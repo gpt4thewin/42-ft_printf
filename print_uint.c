@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 16:08:48 by tavelino          #+#    #+#             */
-/*   Updated: 2018/12/05 20:18:38 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/05 21:29:09 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int			print_uint(t_formatinfo *info, va_list ap)
 {
 	int	output_len;
 
-	output_len = print_unsigned_number(info, ap, BASE, BASE_LEN);
+	output_len = print_number(info, ap, BASE, BASE_LEN);
 	return (output_len);
 }

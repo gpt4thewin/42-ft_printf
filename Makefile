@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/05 20:14:59 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/05 21:28:53 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ _SRC =	ft_nbrlen.c \
 		print_uint.c \
 		print_octal.c \
 		print_padding.c \
-		print_signed_number.c \
+		print_number.c \
 		print_str.c \
 		print_unsigned_number.c \
 		utils.c
