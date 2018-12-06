@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 18:15:24 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/06 17:08:22 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/06 18:37:26 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		parse(const char *restrict format, int *format_pos, t_formatinfo *info)
 		info->flags &= 0xff ^ FLAG_PLUS;
 		info->flags &= 0xff ^ FLAG_SPACE;
 	}
-	if (info->flags & FLAG_MINUS)
+	if (info->flags & FLAG_HASPRECISION || info->flags & FLAG_MINUS)
 	{
 		info->flags &= 0xff ^ FLAG_ZERO;
 	}

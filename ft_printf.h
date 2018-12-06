@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/06 16:58:55 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/06 18:37:01 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,12 @@ hh h l ll
 https://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1048379655&id=1043284385
 */
 
-# define FLAG_PREPOUND	0x01
-# define FLAG_ZERO		0x02
-# define FLAG_PLUS		0x04
-# define FLAG_MINUS		0x08
-# define FLAG_SPACE		0x10
+# define FLAG_PREPOUND		0x01
+# define FLAG_ZERO			0x02
+# define FLAG_PLUS			0x04
+# define FLAG_MINUS			0x08
+# define FLAG_SPACE			0x10
+# define FLAG_HASPRECISION	0x20
 
 typedef struct	s_formatinfo	t_formatinfo;
 typedef enum	e_specifier		t_specifier;
