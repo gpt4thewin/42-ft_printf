@@ -35,13 +35,15 @@ int				print_number(t_formatinfo *info, va_list ap, char *base, int base_len)
 	t_u64		num;
 	int			nbrlen;
 	t_bool		unsignd;
+	int			output_len;
 
 	unsignd = (info->specifier == spec_uint) ? true : false;
 	num = ft_casting_num(info, ap);
 	nbrlen = ft_nbrlen(info, num, base_len);
+	output_len = nbrlen;
 	if (!(info->flags & FLAG_MINUS))
 	{
-		print_padding(info, nbrlen);
+		output_len += print_padding(info, nbrlen);
 	}
 	if ((t_64)num > 0)
 	{
@@ -53,7 +55,7 @@ int				print_number(t_formatinfo *info, va_list ap, char *base, int base_len)
 	ft_putnbr_base(num, base, unsignd);
 	if (info->flags & FLAG_MINUS)
 	{
-		print_padding(info, nbrlen);
+		output_len += print_padding(info, nbrlen);
 	}
-	return (0);
+	return (output_len);
 }

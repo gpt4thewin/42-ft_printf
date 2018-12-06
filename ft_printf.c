@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 15:05:30 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/06 16:54:45 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/06 17:54:47 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static int	print_arg(const char *restrict format, int *format_pos, va_list ap)
 {
 	t_formatinfo	formatinfo;
 
-	if (format[(*format_pos) + 1] == '%')
+	if (format[(*format_pos)] == '%')
 	{
 		ft_putchar('%');
-		(*format_pos) += 2;
+		(*format_pos)++;
 		return (1);
 	}
 	ft_bzero(&formatinfo, sizeof(formatinfo));
