@@ -6,109 +6,30 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 18:15:24 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/05 16:14:06 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/06 17:08:22 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		parse_number(const char *restrict format, int *format_pos)
-{
-	int	digit;
-	int	res;
+/*
+**	Parses the argument at the current position and strips the irrelevant flags.
+*/
 
-	res = 0;
-	while (ft_isdigit(format[*format_pos]))
+void		parse(const char *restrict format, int *format_pos, t_formatinfo *info)
+{
+	parse_flags(info, format, format_pos);
+	parse_width(info, format, format_pos);
+	parse_precision(info, format, format_pos);
+	parse_length(info, format, format_pos);
+	parse_specifier(info, format, format_pos);
+	if (info->specifier != spec_int)
 	{
-		digit = format[*format_pos] - '0';
-		res *= 10;
-		res += digit;
-		(*format_pos)++;
+		info->flags &= 0xff ^ FLAG_PLUS;
+		info->flags &= 0xff ^ FLAG_SPACE;
 	}
-	return (res);
-}
-
-void		parse_flags(t_formatinfo *info, const char *restrict format, int *format_pos)
-{
-	while (format[*format_pos] != '\0')
+	if (info->flags & FLAG_MINUS)
 	{
-		if (format[*format_pos] == '#')
-			info->flags |= FLAG_PREPOUND;
-		else if (format[*format_pos] == '0')
-			info->flags |= FLAG_ZERO;
-		else if (format[*format_pos] == '+')
-			info->flags |= FLAG_PLUS;
-		else if (format[*format_pos] == '-')
-			info->flags |= FLAG_MINUS;
-		else if (format[*format_pos] == ' ')
-			info->flags |= FLAG_SPACE;
-		else
-			return ;
-		(*format_pos)++;
+		info->flags &= 0xff ^ FLAG_ZERO;
 	}
-}
-
-void		parse_width(t_formatinfo *info, const char *restrict format, int *format_pos)
-{
-	info->width = parse_number(format, format_pos);
-}
-
-void		parse_precision(t_formatinfo *info, const char *restrict format, int *format_pos)
-{
-	if (format[*format_pos] == '.')
-	{
-		(*format_pos)++;
-		info->precision = parse_number(format, format_pos);
-	}
-}
-
-void		parse_length(t_formatinfo *info, const char *restrict format, int *format_pos)
-{
-	char		*str;
-	t_length	len;
-
-	str = (char*)format + (*format_pos);
-	if (!ft_strncmp(str, "hh", 2))
-		len = len_char;
-	else if (!ft_strncmp(str, "h", 1))
-		len = len_short;
-	else if (!ft_strncmp(str, "ll", 2))
-		len = len_llong;
-	else if (!ft_strncmp(str, "l", 1))
-		len = len_long;
-	else
-		return ;
-	if (len == len_char || len == len_llong)
-		(*format_pos) += 2;
-	else if (len == len_long || len == len_short)
-		(*format_pos) += 1;
-	info->length = len;
-}
-
-void		parse_specifier(t_formatinfo *info, const char *restrict format, int *format_pos)
-{
-	char		c;
-	t_specifier	spec;
-
-	c = format[*format_pos];
-	if (c == 'i' || c == 'd')
-		spec = spec_int;
-	else if (c == 'u')
-		spec = spec_uint;
-	else if (c == 'x')
-		spec = spec_hex;
-	else if (c == 'X')
-		spec = spec_hexup;
-	else if (c == 'o')
-		spec = spec_octal;
-	else if (c == 'f' || c == 'F')
-		spec = spec_float;
-	else if (c == 's')
-		spec = spec_str;
-	else if (c == 'c')
-		spec = spec_char;
-	else
-		exit(EXIT_FAILURE);
-	(*format_pos)++;
-	info->specifier = spec;
 }

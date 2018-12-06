@@ -43,11 +43,16 @@ int				print_number(t_formatinfo *info, va_list ap, char *base, int base_len)
 	{
 		print_padding(info, nbrlen);
 	}
+	if ((t_64)num > 0)
+	{
+		if (info->flags & FLAG_PLUS)
+			ft_putchar('+');
+		else if (info->flags & FLAG_SPACE)
+			ft_putchar(' ');
+	}
 	ft_putnbr_base(num, base, unsignd);
 	if (info->flags & FLAG_MINUS)
 	{
-		if (info->flags & FLAG_ZERO)
-			info->flags ^= FLAG_ZERO;
 		print_padding(info, nbrlen);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 15:05:30 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/05 20:18:00 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/06 16:54:45 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,7 @@ static int	print_arg(const char *restrict format, int *format_pos, va_list ap)
 		return (1);
 	}
 	ft_bzero(&formatinfo, sizeof(formatinfo));
-	parse_flags(&formatinfo, format, format_pos);
-	parse_width(&formatinfo, format, format_pos);
-	parse_precision(&formatinfo, format, format_pos);
-	parse_length(&formatinfo, format, format_pos);
-	parse_specifier(&formatinfo, format, format_pos);
+	parse(format, format_pos, &formatinfo);
 	return (print_parameter(&formatinfo, ap));
 }
 

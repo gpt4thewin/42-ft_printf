@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/05 21:28:00 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/06 16:58:55 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,16 +144,18 @@ struct	s_formatinfo
 int			ft_printf(const char *format, ...);
 void		append(char *str, size_t *pos, char c);
 
+void		parse(const char *restrict format, int *format_pos, t_formatinfo *info);
 void		parse_flags(t_formatinfo *info, const char *restrict format, int *format_pos);
 void		parse_width(t_formatinfo *info, const char *restrict format, int *format_pos);
 void		parse_precision(t_formatinfo *info, const char *restrict format, int *format_pos);
 void		parse_length(t_formatinfo *info, const char *restrict format, int *format_pos);
 void		parse_specifier(t_formatinfo *info, const char *restrict format, int *format_pos);
+int			parse_number(const char *restrict format, int *format_pos);
 
 int			print_padding(t_formatinfo *formatinfo, int len);
 
 int			print_parameter(t_formatinfo *formatinfo, va_list ap);
-int			ft_nbrlen(t_formatinfo *info, long long num, int base_len);
+int			ft_nbrlen(t_formatinfo *info, t_u64 num, int base_len);
 int			ft_unbrlen(t_formatinfo *info, unsigned long long num, int base_len);
 void		ft_putnbr_base(t_u64 nbr, char *base, t_bool unsignd);
 
