@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 16:26:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/10 19:08:08 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/10 19:13:41 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ static int		ft_nbrlen(t_formatinfo *info, t_64 num, int base_len)
 		num *= -1;
 		total++;
 	}
-	else if (info->flags & FLAG_PLUS &&
-			info->specifier == spec_int &&
-			(t_64)num > 0)
+	else if (info->specifier == spec_int && (t_64)num >= 0)
 	{
-		total++;
+		if (info->flags & FLAG_PLUS)
+			total++;
+		else if (info->flags & FLAG_SPACE)
+			total++;
 	}
 	while ((num /= base_len) > 0)
 		total++;
@@ -70,7 +71,7 @@ int				print_number(t_formatinfo *info, va_list ap, char *base, int base_len)
 	{
 		output_len += print_padding(info, nbrlen);
 	}
-	if ((t_64)num >= 0)
+	if (info->specifier == spec_int && (t_64)num >= 0)
 	{
 		if (info->flags & FLAG_PLUS)
 			ft_putchar('+');
