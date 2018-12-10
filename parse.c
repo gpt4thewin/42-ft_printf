@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 18:15:24 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/10 11:04:14 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/10 16:55:27 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void		parse(const char *restrict format, int *format_pos, t_formatinfo *info)
 	parse_precision(info, format, format_pos);
 	parse_length(info, format, format_pos);
 	parse_specifier(info, format, format_pos);
+	info->unsignd = (info->specifier == spec_uint) ? true : false;
 	if (info->specifier != spec_int)
 	{
 		info->flags &= 0xff ^ FLAG_PLUS;

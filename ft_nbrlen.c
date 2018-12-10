@@ -6,13 +6,13 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 16:02:25 by tavelino          #+#    #+#             */
-/*   Updated: 2018/12/06 16:30:09 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/10 16:45:22 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_nbrlen(t_formatinfo *info, t_u64 num, int base_len)
+int		ft_nbrlen(t_formatinfo *info, t_64 num, int base_len)
 {
 	int total;
 
@@ -33,7 +33,7 @@ int		ft_nbrlen(t_formatinfo *info, t_u64 num, int base_len)
 	return (total);
 }
 
-int		ft_unbrlen(t_formatinfo *info, unsigned long long num, int base_len)
+int		ft_unbrlen(t_formatinfo *info, t_u64 num, int base_len)
 {
 	int total;
 
