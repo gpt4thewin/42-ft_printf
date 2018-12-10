@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/06 17:49:38 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/07 10:50:01 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC = $(patsubst %,$(SDIR)/%,$(_SRC)))
 _SRC =	ft_nbrlen.c \
 		ft_printf.c \
 		ft_putnbr_base.c \
+		ft_putnstr.c \
 		parse.c \
 		print_parameter.c \
 		print_char.c \

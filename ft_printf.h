@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/06 18:37:01 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/07 10:49:35 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,7 @@ int			print_parameter(t_formatinfo *formatinfo, va_list ap);
 int			ft_nbrlen(t_formatinfo *info, t_u64 num, int base_len);
 int			ft_unbrlen(t_formatinfo *info, unsigned long long num, int base_len);
 void		ft_putnbr_base(t_u64 nbr, char *base, t_bool unsignd);
+int			ft_putnstr(char *str, int max);
 
 int			print_number(t_formatinfo *info, va_list ap, char *base, int base_len);
 
