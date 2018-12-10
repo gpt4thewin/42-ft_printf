@@ -6,13 +6,13 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 16:26:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/10 18:26:31 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/10 19:08:08 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static t_64	read_argument(t_formatinfo *info, va_list ap)
+static t_64		read_argument(t_formatinfo *info, va_list ap)
 {
 	t_64	num;
 
@@ -27,6 +27,27 @@ static t_64	read_argument(t_formatinfo *info, va_list ap)
 	else
 		num = (t_32)(va_arg(ap, t_32));
 	return (num);
+}
+
+static int		ft_nbrlen(t_formatinfo *info, t_64 num, int base_len)
+{
+	int total;
+
+	total = 1;
+	if ((t_64)num < 0)
+	{
+		num *= -1;
+		total++;
+	}
+	else if (info->flags & FLAG_PLUS &&
+			info->specifier == spec_int &&
+			(t_64)num > 0)
+	{
+		total++;
+	}
+	while ((num /= base_len) > 0)
+		total++;
+	return (total);
 }
 
 /*

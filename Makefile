@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/10 17:22:38 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/10 19:09:41 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,7 @@ OBJ = $(patsubst %.c,$(ODIR)/%.o,$(_SRC))
 
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC)))
 
-_SRC =	ft_nbrlen.c \
-		ft_printf.c \
+_SRC =	ft_printf.c \
 		ft_putnbr_base.c \
 		ft_putnstr.c \
 		parse.c \

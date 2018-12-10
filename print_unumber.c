@@ -6,11 +6,25 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 16:26:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/10 18:57:41 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/10 19:07:56 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int		ft_unbrlen(t_formatinfo *info, t_u64 num, int base_len)
+{
+	int total;
+
+	total = 1;
+	if (info->flags & FLAG_PLUS)
+	{
+		total++;
+	}
+	while ((num /= base_len) > 0)
+		total++;
+	return (total);
+}
 
 static t_u64	read_argument(t_formatinfo *info, va_list ap)
 {
