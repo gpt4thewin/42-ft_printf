@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 13:39:06 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 15:40:50 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,8 +158,8 @@ void		print_number_generic(t_formatinfo *info, va_list ap, char *base, t_output 
 */
 
 void		out_putchar(t_output *output, char c);
+void		out_putchar_len(t_output *output, char *ptr, size_t size);
 void		out_init(t_output *output);
-void		out_write(t_output *output, char *ptr, size_t size);
 void		print_padding(t_formatinfo *formatinfo, int len, t_output *output);
 void		ft_putnbr_base(t_u64 nbr, char *base, t_output *output);
 int			ft_putnstr(char *str, int max);

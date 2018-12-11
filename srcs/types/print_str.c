@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 16:32:14 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 13:41:58 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 15:42:37 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void		print_str(t_formatinfo *info, va_list ap, t_output *output)
 
 	str = va_arg(ap, char*);
 	len = get_len(info, str);
-	out_write(output, str, info->precision);
+	out_putchar_len(output, str, len);
 }
