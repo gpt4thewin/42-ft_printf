@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 16:26:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 18:04:58 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 18:22:02 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static t_64		read_argument_signed(t_formatinfo *info, va_list ap)
 	t_64	num;
 
 	if (info->length == len_char)
-		num = (t_8)(va_arg(ap, t_32));
+		num = (char)(va_arg(ap, int));
 	else if (info->length == len_short)
-		num = (t_16)(va_arg(ap, t_32));
+		num = (short)(va_arg(ap, int));
 	else if (info->length == len_long)
-		num = (t_32)(va_arg(ap, t_32));
+		num = (long)(va_arg(ap, long));
 	else if (info->length == len_llong)
-		num = (t_64)(va_arg(ap, t_64));
+		num = (long long)(va_arg(ap, long long));
 	else
-		num = (t_32)(va_arg(ap, t_32));
+		num = (int)(va_arg(ap, int));
 	return (num);
 }
 
@@ -34,15 +34,15 @@ static t_u64	read_argument_unsigned(t_formatinfo *info, va_list ap)
 	t_u64	num;
 
 	if (info->length == len_char)
-		num = (t_u8)(va_arg(ap, t_u32));
+		num = (unsigned char)(va_arg(ap, unsigned int));
 	else if (info->length == len_short)
-		num = (t_u16)(va_arg(ap, t_u32));
+		num = (unsigned short)(va_arg(ap, unsigned int));
 	else if (info->length == len_long)
-		num = (t_u32)(va_arg(ap, t_u32));
+		num = (unsigned long)(va_arg(ap, unsigned long));
 	else if (info->length == len_llong)
-		num = (t_u64)(va_arg(ap, t_u64));
+		num = (unsigned long long)(va_arg(ap, unsigned long long));
 	else
-		num = (t_u32)(va_arg(ap, t_u32));
+		num = (unsigned int)(va_arg(ap, unsigned int));
 	return (num);
 }
 
