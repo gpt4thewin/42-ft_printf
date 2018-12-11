@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 16:38:52 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 13:39:49 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 16:04:15 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 #define BASE		"0123456789ABCDEF"
 #define BASE_LEN	16
+#define PREPOUND	"0X"
 
 void		print_hexup(t_formatinfo *info, va_list ap, t_output *output)
 {
+	if (info->flags & FLAG_PREPOUND)
+		out_putchar_len(output, PREPOUND, sizeof(PREPOUND) - 1);
 	print_number_generic(info, ap, BASE, output);
 }

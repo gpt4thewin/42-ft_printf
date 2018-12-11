@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:52:40 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/06 18:37:44 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 15:49:51 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ void		parse_precision(t_formatinfo *info, const char *restrict format, int *form
 	{
 		(*format_pos)++;
 		info->precision = parse_number(format, format_pos);
-		info->flags ^= FLAG_HASPRECISION;
+		info->flags |= FLAG_HASPRECISION;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:53:22 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/06 16:53:25 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 15:49:29 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ void		parse_specifier(t_formatinfo *info, const char *restrict format, int *form
 		spec = spec_str;
 	else if (c == 'c')
 		spec = spec_char;
+	else if (c == 'p')
+	{
+		spec = spec_hex;
+		info->flags |= FLAG_PREPOUND;
+	}
 	else
 		exit(EXIT_FAILURE);
 	(*format_pos)++;

@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/11 15:42:13 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/11 15:59:18 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ _SRC =	core/ft_printf.c \
 		utils/out_putchar.c \
 		utils/print_number_generic.c \
 		utils/print_padding.c \
+		utils/fill_nchar.c \
 		$(_LIBFTSRC)
 
 _LIBFTSRC = libft/ft_bzero.c \
