@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 16:08:48 by tavelino          #+#    #+#             */
-/*   Updated: 2018/12/10 17:59:50 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 13:08:48 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 #define BASE		"0123456789"
 #define BASE_LEN	10
 
-int			print_int(t_formatinfo *info, va_list ap)
+void		print_int(t_formatinfo *info, va_list ap, t_output *output)
 {
-	int	output_len;
-
-	output_len = print_number(info, ap, BASE, BASE_LEN);
-	return (output_len);
+	if (info->flags & FLAG_PLUS)
+		out_putchar(output, '+');
+	else if (info->flags & FLAG_SPACE)
+		out_putchar(output, ' ');
+	print_number_generic(info, ap, BASE, output);
 }

@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 15:05:30 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/06 17:54:47 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 10:57:29 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,13 @@
 **
 */
 
-static int	print_arg(const char *restrict format, int *format_pos, va_list ap)
+static int	parse_and_print_argument(const char *restrict format, int *format_pos, va_list ap)
 {
 	t_formatinfo	formatinfo;
 
-	if (format[(*format_pos)] == '%')
-	{
-		ft_putchar('%');
-		(*format_pos)++;
-		return (1);
-	}
 	ft_bzero(&formatinfo, sizeof(formatinfo));
 	parse(format, format_pos, &formatinfo);
-	return (print_parameter(&formatinfo, ap));
+	return (print_argument(&formatinfo, ap));
 }
 
 int		ft_printf(const char *restrict format, ...)
@@ -45,7 +39,7 @@ int		ft_printf(const char *restrict format, ...)
 		if (format[format_pos] == '%')
 		{
 			format_pos++;
-			output_size += print_arg(format, &format_pos, ap);
+			output_size += parse_and_print_argument(format, &format_pos, ap);
 		}
 		else
 		{

@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/10 19:09:41 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/11 13:45:22 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT) -g
 # CFLAGS = -I $(IDIR) -I $(LIBFT) -g
 
-IDIR = .
-SDIR = .
+IDIR = includes
+SDIR = srcs
 ODIR = obj
 LIBFT = libft
 
@@ -28,29 +28,30 @@ OBJ = $(patsubst %.c,$(ODIR)/%.o,$(_SRC))
 
 SRC = $(patsubst %,$(SDIR)/%,$(_SRC)))
 
-_SRC =	ft_printf.c \
-		ft_putnbr_base.c \
-		ft_putnstr.c \
-		parse.c \
-		print_parameter.c \
-		print_char.c \
-		print_float.c \
-		print_hex.c \
-		print_hexup.c \
-		print_int.c \
-		print_uint.c \
-		print_octal.c \
-		print_padding.c \
-		print_number.c \
-		print_unumber.c \
-		print_str.c \
-		parse_flags.c \
-		parse_length.c \
-		parse_number.c \
-		parse_precision.c \
-		parse_specifier.c \
-		parse_width.c \
-		utils.c \
+_SRC =	core/ft_printf.c \
+		core/print_argument.c \
+		parse/parse.c \
+		parse/parse_flags.c \
+		parse/parse_length.c \
+		parse/parse_number.c \
+		parse/parse_precision.c \
+		parse/parse_specifier.c \
+		parse/parse_width.c \
+		types/print_char.c \
+		types/print_float.c \
+		types/print_hex.c \
+		types/print_hexup.c \
+		types/print_int.c \
+		types/print_octal.c \
+		types/print_str.c \
+		types/print_uint.c \
+		utils/ft_putnbr_base.c \
+		utils/ft_putnstr.c \
+		utils/out_init.c \
+		utils/out_putchar.c \
+		utils/out_write.c \
+		utils/print_number_generic.c \
+		utils/print_padding.c \
 		$(_LIBFTSRC)
 
 _LIBFTSRC = libft/ft_bzero.c \

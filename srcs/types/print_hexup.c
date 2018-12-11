@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   print_hexup.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/30 16:43:05 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/04 17:34:04 by juazouz          ###   ########.fr       */
+/*   Created: 2018/12/05 16:38:52 by juazouz           #+#    #+#             */
+/*   Updated: 2018/12/11 13:39:49 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		print_char(t_formatinfo *info, va_list ap)
-{
-	(void)info;
-	int		c;
-	int		padding_size;
+#define BASE		"0123456789ABCDEF"
+#define BASE_LEN	16
 
-	c = va_arg(ap, int);
-	padding_size = print_padding(info, 1);
-	ft_putchar(c);
-	return (padding_size + 1);
+void		print_hexup(t_formatinfo *info, va_list ap, t_output *output)
+{
+	print_number_generic(info, ap, BASE, output);
 }

@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/10 19:09:19 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 13:39:06 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,11 @@
 // # include <stdlib.h>
 // # include <stdio.h>
 // # include <fcntl.h>
-#include <stdarg.h>
+# include <stdarg.h>
 # include "libft.h"
 
 /*
 **	Defines.
-*/
-
-/*
-**	Types.
 */
 
 /*
@@ -75,9 +71,14 @@ https://faq.cprogramming.com/cgi-bin/smartfaq.cgi?answer=1048379655&id=104328438
 # define FLAG_SPACE			0x10
 # define FLAG_HASPRECISION	0x20
 
+/*
+**	Types.
+*/
+
 typedef struct	s_formatinfo	t_formatinfo;
 typedef enum	e_specifier		t_specifier;
 typedef enum	e_length		t_length;
+typedef struct	s_output		t_output;
 
 typedef	unsigned char			t_u8;
 typedef	unsigned short			t_u16;
@@ -135,16 +136,37 @@ struct	s_formatinfo
 	int			width;
 	t_length	length;
 	t_specifier	specifier;
-	t_bool		unsignd;
 	char		flags;
 };
 
+struct	s_output
+{
+	int		fd;
+	size_t	size;
+};
+
 /*
-**	ft_printf functions.
+**	Core.
 */
 
 int			ft_printf(const char *format, ...);
-void		append(char *str, size_t *pos, char c);
+int			print_argument(t_formatinfo *formatinfo, va_list ap);
+void		print_number_generic(t_formatinfo *info, va_list ap, char *base, t_output *output);
+
+/*
+**	Utils.
+*/
+
+void		out_putchar(t_output *output, char c);
+void		out_init(t_output *output);
+void		out_write(t_output *output, char *ptr, size_t size);
+void		print_padding(t_formatinfo *formatinfo, int len, t_output *output);
+void		ft_putnbr_base(t_u64 nbr, char *base, t_output *output);
+int			ft_putnstr(char *str, int max);
+
+/*
+**	Parse.
+*/
 
 void		parse(const char *restrict format, int *format_pos, t_formatinfo *info);
 void		parse_flags(t_formatinfo *info, const char *restrict format, int *format_pos);
@@ -154,22 +176,17 @@ void		parse_length(t_formatinfo *info, const char *restrict format, int *format_
 void		parse_specifier(t_formatinfo *info, const char *restrict format, int *format_pos);
 int			parse_number(const char *restrict format, int *format_pos);
 
-int			print_padding(t_formatinfo *formatinfo, int len);
+/*
+**	Argument type specific.
+*/
 
-int			print_parameter(t_formatinfo *formatinfo, va_list ap);
-void		ft_putnbr_base(t_u64 nbr, char *base, t_bool unsignd);
-int			ft_putnstr(char *str, int max);
-
-int			print_number(t_formatinfo *info, va_list ap, char *base, int base_len);
-int			print_unumber(t_formatinfo *info, va_list ap, char *base, int base_len);
-
-int			print_int(t_formatinfo *info, va_list ap);
-int			print_uint(t_formatinfo *info, va_list ap);
-int			print_octal(t_formatinfo *info, va_list ap);
-int			print_hex(t_formatinfo *info, va_list ap);
-int			print_hexup(t_formatinfo *info, va_list ap);
-int			print_float(t_formatinfo *info, va_list ap);
-int			print_str(t_formatinfo *info, va_list ap);
-int			print_char(t_formatinfo *info, va_list ap);
+void		print_int(t_formatinfo *info, va_list ap, t_output *output);
+void		print_uint(t_formatinfo *info, va_list ap, t_output *output);
+void		print_octal(t_formatinfo *info, va_list ap, t_output *output);
+void		print_hex(t_formatinfo *info, va_list ap, t_output *output);
+void		print_hexup(t_formatinfo *info, va_list ap, t_output *output);
+void		print_float(t_formatinfo *info, va_list ap, t_output *output);
+void		print_str(t_formatinfo *info, va_list ap, t_output *output);
+void		print_char(t_formatinfo *info, va_list ap, t_output *output);
 
 #endif

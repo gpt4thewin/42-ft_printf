@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_hex.c                                        :+:      :+:    :+:   */
+/*   print_octal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/05 16:38:52 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/05 21:28:12 by juazouz          ###   ########.fr       */
+/*   Created: 2018/12/05 19:30:55 by juazouz           #+#    #+#             */
+/*   Updated: 2018/12/11 13:40:01 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-#define BASE		"0123456789abcdef"
-#define BASE_LEN	16
+#define BASE		"01234567"
+#define BASE_LEN	8
 
-int			print_hex(t_formatinfo *info, va_list ap)
+void		print_octal(t_formatinfo *info, va_list ap, t_output *output)
 {
-	int	output_len;
-
-	output_len = print_number(info, ap, BASE, BASE_LEN);
-	return (output_len);
+	print_number_generic(info, ap, BASE, output);
 }
