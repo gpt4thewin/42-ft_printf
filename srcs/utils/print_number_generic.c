@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 16:26:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 15:08:09 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 15:27:00 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,22 @@ static t_u64	read_argument_unsigned(t_formatinfo *info, va_list ap)
 	return (num);
 }
 
+static void		print_sign(t_formatinfo *info, t_64 num, t_output *output)
+{
+	if (num < 0)
+	{
+		out_putchar(output, '-');
+		num *= -1;
+	}
+	else
+	{
+		if (info->flags & FLAG_PLUS)
+			out_putchar(output, '+');
+		else if (info->flags & FLAG_SPACE)
+			out_putchar(output, ' ');
+	}
+}
+
 /*
 **	Generic argument number printing functions.
 **	Works for any base (2, 10, 16..).
@@ -74,19 +90,15 @@ void			print_number_generic(t_formatinfo *info, va_list ap, char *base, t_output
 	if (info->specifier == spec_int)
 	{
 		num = read_argument_signed(info, ap);
-		if (num < 0)
-		{
-			out_putchar(output, '-');
-			num *= -1;
-		}
+		print_sign(info, num, output);
 		unum = num;
+		if (info->flags & FLAG_HASPRECISION && info->precision == 0  && unum == 0)
+			return;
 	}
 	else
 	{
 		unum = read_argument_unsigned(info, ap);
 	}
-	if (info->precision == 0 && unum == 0)
-		return;
 	out_init(&output2);
 	ft_putnbr_base(unum, base, &output2);
 	fill_zeros(output, info->precision - output2.size);
