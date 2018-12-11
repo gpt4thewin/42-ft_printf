@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_octal.c                                      :+:      :+:    :+:   */
+/*   print_prepound.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/05 19:30:55 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 18:55:16 by juazouz          ###   ########.fr       */
+/*   Created: 2018/12/11 18:50:05 by juazouz           #+#    #+#             */
+/*   Updated: 2018/12/11 19:03:22 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-#define BASE		"01234567"
-#define BASE_LEN	8
-#define PREPOUND	"0"
+/*
+**	Prints the specified prepound string if needed.
+*/
 
-void		print_octal(t_formatinfo *info, va_list ap, t_output *output)
+void	print_prepound(t_formatinfo *info, char *str, va_list ap, t_output *output)
 {
-	print_prepound(info, PREPOUND, ap, output);
-	print_number_generic(info, ap, BASE, output);
+	t_u64	num;
+	va_list	ap2;
+
+	if (!(info->flags & FLAG_PREPOUND))
+		return;
+	va_copy(ap2, ap);
+	num = read_argument_unsigned(info, ap2);
+	if (num != 0 || info->specifier == spec_octal)
+		out_putchar_len(output, str, ft_strlen(str));
 }

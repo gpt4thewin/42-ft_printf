@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/05 16:38:52 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 16:03:09 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 18:56:46 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 void		print_hex(t_formatinfo *info, va_list ap, t_output *output)
 {
-	if (info->flags & FLAG_PREPOUND)
-		out_putchar_len(output, PREPOUND, sizeof(PREPOUND) - 1);
+	print_prepound(info, PREPOUND, ap, output);
 	print_number_generic(info, ap, BASE, output);
 }

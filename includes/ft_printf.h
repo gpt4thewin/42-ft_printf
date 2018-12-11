@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 17:41:10 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 18:54:37 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,6 +165,7 @@ void		print_padding(t_formatinfo *formatinfo, int len, t_output *output);
 void		ft_putnbr_base(t_u64 nbr, char *base, t_output *output);
 int			ft_putnstr(char *str, int max);
 void		fill_nchar(t_output *output, int count, char c);
+void		print_prepound(t_formatinfo *info, char *str, va_list ap, t_output *output);
 
 /*
 **	Parse.
@@ -177,6 +178,13 @@ void		parse_precision(t_formatinfo *info, const char *restrict format, int *form
 void		parse_length(t_formatinfo *info, const char *restrict format, int *format_pos);
 void		parse_specifier(t_formatinfo *info, const char *restrict format, int *format_pos);
 int			parse_number(const char *restrict format, int *format_pos);
+
+/*
+**	Arguments reading.
+*/
+
+t_64		read_argument_signed(t_formatinfo *info, va_list ap);
+t_u64		read_argument_unsigned(t_formatinfo *info, va_list ap);
 
 /*
 **	Argument type specific.
