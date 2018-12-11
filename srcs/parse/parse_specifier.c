@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:53:22 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 15:49:29 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 17:48:18 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,15 @@ void		parse_specifier(t_formatinfo *info, const char *restrict format, int *form
 		spec = spec_hex;
 		info->flags |= FLAG_PREPOUND;
 	}
+	else if (c == '%')
+		spec = spec_percent;
 	else
+	{
+		ft_putstr("ft_printf error: Unknown specifier: ");
+		ft_putchar(c);
+		ft_putendl("");
 		exit(EXIT_FAILURE);
+	}
 	(*format_pos)++;
 	info->specifier = spec;
 }

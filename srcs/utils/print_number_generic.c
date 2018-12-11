@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 16:26:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 16:51:06 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 18:04:58 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,9 @@ void			print_number_generic(t_formatinfo *info, va_list ap, char *base, t_output
 	}
 	out_init(&output2);
 	ft_putnbr_base(unum, base, &output2);
-	if (!(info->flags & FLAG_MINUS) && info->flags & FLAG_ZERO)
-		fill_nchar(output, ft_max(info->precision, info->width - output->size) - output2.size, '0');
+	if (info->flags & FLAG_HASPRECISION)
+		fill_nchar(output, info->precision - output2.size, '0');
+	else if (!(info->flags & FLAG_MINUS) && info->flags & FLAG_ZERO)
+		fill_nchar(output, info->width - output->size - output2.size, '0');
 	ft_putnbr_base(unum, base, output);
 }

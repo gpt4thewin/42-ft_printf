@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 16:00:14 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 17:41:10 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ typedef double					t_f64;
 // 	space = 0x10
 // };
 
-#define	SPEC_COUNT 9
+#define	SPEC_COUNT 10
 
 enum	e_specifier
 {
@@ -119,6 +119,7 @@ enum	e_specifier
 	spec_float,
 	spec_str,
 	spec_char,
+	spec_percent,
 };
 
 enum	e_length
@@ -189,5 +190,6 @@ void		print_hexup(t_formatinfo *info, va_list ap, t_output *output);
 void		print_float(t_formatinfo *info, va_list ap, t_output *output);
 void		print_str(t_formatinfo *info, va_list ap, t_output *output);
 void		print_char(t_formatinfo *info, va_list ap, t_output *output);
+void		print_percent(t_formatinfo *info, va_list ap, t_output *output);
 
 #endif

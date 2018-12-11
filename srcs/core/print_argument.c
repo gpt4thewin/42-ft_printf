@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:31:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 16:20:26 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 17:56:58 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,21 @@ static void	(*get_func(t_specifier spec))(t_formatinfo*, va_list, t_output*)
 	func[spec_float] = print_float;
 	func[spec_str] = print_str;
 	func[spec_char] = print_char;
+	func[spec_percent] = print_percent;
 	return (func[spec]);
 }
 
 static void	print_space_padding(t_formatinfo *formatinfo, int len, t_output *output)
 {
+	char	padchar;
+
 	if (len >= formatinfo->width)
 		return;
-	fill_nchar(output, (formatinfo->width - len), ' ');
+	if (formatinfo->flags & FLAG_ZERO)
+		padchar = '0';
+	else
+		padchar = ' ';
+	fill_nchar(output, (formatinfo->width - len), padchar);
 }
 
 /*

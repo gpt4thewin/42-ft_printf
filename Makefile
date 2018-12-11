@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/11 16:40:49 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/11 17:41:32 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,7 @@ _SRC =	core/ft_printf.c \
 		types/print_octal.c \
 		types/print_str.c \
 		types/print_uint.c \
+		types/print_percent.c \
 		utils/ft_putnbr_base.c \
 		utils/ft_putnstr.c \
 		utils/out_init.c \
