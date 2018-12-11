@@ -6,11 +6,23 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 16:26:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 14:32:12 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 15:08:09 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void		fill_zeros(t_output *output, int count)
+{
+	int	i;
+
+	i = 0;
+	while (i < count)
+	{
+		out_putchar(output, '0');
+		i++;
+	}
+}
 
 static t_64		read_argument_signed(t_formatinfo *info, va_list ap)
 {
@@ -55,8 +67,9 @@ static t_u64	read_argument_unsigned(t_formatinfo *info, va_list ap)
 
 void			print_number_generic(t_formatinfo *info, va_list ap, char *base, t_output *output)
 {
-	t_64	num;
-	t_u64	unum;
+	t_64		num;
+	t_u64		unum;
+	t_output	output2;
 
 	if (info->specifier == spec_int)
 	{
@@ -72,5 +85,10 @@ void			print_number_generic(t_formatinfo *info, va_list ap, char *base, t_output
 	{
 		unum = read_argument_unsigned(info, ap);
 	}
+	if (info->precision == 0 && unum == 0)
+		return;
+	out_init(&output2);
+	ft_putnbr_base(unum, base, &output2);
+	fill_zeros(output, info->precision - output2.size);
 	ft_putnbr_base(unum, base, output);
 }
