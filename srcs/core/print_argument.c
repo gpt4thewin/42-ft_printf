@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:31:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 14:00:25 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 15:10:08 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int			print_argument(t_formatinfo *formatinfo, va_list ap)
 	}
 	else
 	{
-		print_func(formatinfo, ap2, &output);
 		print_padding(formatinfo, output_size, &output);
+		print_func(formatinfo, ap2, &output);
 	}
 	return (output.size);
 }
