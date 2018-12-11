@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:31:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 15:10:08 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/11 16:20:26 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ static void	(*get_func(t_specifier spec))(t_formatinfo*, va_list, t_output*)
 	return (func[spec]);
 }
 
+static void	print_space_padding(t_formatinfo *formatinfo, int len, t_output *output)
+{
+	if (len >= formatinfo->width)
+		return;
+	fill_nchar(output, (formatinfo->width - len), ' ');
+}
+
 /*
 **	Selects the right function to print the argument.
 **	Returns the number of printed characters.
@@ -53,11 +60,11 @@ int			print_argument(t_formatinfo *formatinfo, va_list ap)
 	if (formatinfo->flags & FLAG_MINUS)
 	{
 		print_func(formatinfo, ap2, &output);
-		print_padding(formatinfo, output_size, &output);
+		print_space_padding(formatinfo, output_size, &output);
 	}
 	else
 	{
-		print_padding(formatinfo, output_size, &output);
+		print_space_padding(formatinfo, output_size, &output);
 		print_func(formatinfo, ap2, &output);
 	}
 	return (output.size);
