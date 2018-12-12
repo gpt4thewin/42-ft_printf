@@ -6,7 +6,7 @@
 /*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 18:02:41 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 15:46:48 by tavelino         ###   ########.fr       */
+/*   Updated: 2018/12/12 17:36:23 by tavelino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,17 +92,18 @@ int	main(int argc, char *argv[])
 	// test_float(1.0F);
 	// test_char("%s\t|%%\n",'c');
 
-	// test_string("%10s","test");
-	// test_string("%-10s","test");
-	// test_string("%10.6s","alphabeta");
-	// test_string("%-10.6s","alphabeta");
-	// test_string("%s", "alphabeta");
-	// test_string("%+ -#0s", "alphabeta");
+	// Testing strings
+	test_string("%.3s",NULL);
+	test_string("%-3s",NULL);
+	test_string("%10.6s",NULL);
+	test_string("%-10.6s",NULL);
+	test_string("%s", NULL);
+	test_string("%+ -#0s", NULL);
+	//********** Need to fix NULL **********
+	test_string("@moulitest: %s", NULL);
+	//char string[] = "teste";
+	//test_string("%s %s", NULL, string);
 
-	test_int("%d", 1);
-	test_int("%d", -1);
-	test_int("%d is one", 1);
-	test_int("%d", 4242);
 	//test_int("%d", -2147483649);
 	// test_int("%10d", 12);
 	// test_int("%+d", 123456);
@@ -148,7 +149,7 @@ int	main(int argc, char *argv[])
 	//test_int("%+010x", -36);
 
 	// Pointers tests
-	//test_int("%#d", -1);
+	// test_long("%#d", 35463216561);
 	// test_int("%#d", 1);
 	// test_int("%#+d", 1);
 	// test_int("%#o", 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 21:08:47 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/20 15:57:16 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 17:01:15 by tavelino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ size_t	ft_strlen(char const *str)
 	int n;
 
 	n = 0;
-	while (str[n] != 0)
+	if (str)
 	{
-		n++;
+		while (str[n] != 0)
+			n++;
 	}
 	return (n);
 }
