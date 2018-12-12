@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   print_str.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 16:32:14 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 17:36:06 by tavelino         ###   ########.fr       */
+/*   Updated: 2018/12/12 18:46:41 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#define	STRNULL "(null)"
+#define STRNULL "(null)"
 
 static int	get_len(t_formatinfo *info, char *str)
 {

@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 16:26:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 17:51:44 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 18:47:08 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,8 @@ void			print_number_generic(t_formatinfo *info,
 		num = read_argument_signed(info, ap);
 		print_sign(info, num, output);
 		if (num < 0)
-			unum = num * -1;
-		else
-			unum = num;
+			num *= -1;
+		unum = num;
 	}
 	else
 	{
