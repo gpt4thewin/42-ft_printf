@@ -6,7 +6,7 @@
 /*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 18:02:41 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 15:24:35 by tavelino         ###   ########.fr       */
+/*   Updated: 2018/12/12 15:46:48 by tavelino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,11 @@ int	main(int argc, char *argv[])
 	// test_string("%s", "alphabeta");
 	// test_string("%+ -#0s", "alphabeta");
 
+	test_int("%d", 1);
+	test_int("%d", -1);
+	test_int("%d is one", 1);
+	test_int("%d", 4242);
+	//test_int("%d", -2147483649);
 	// test_int("%10d", 12);
 	// test_int("%+d", 123456);
 	// test_int("% +d", 123456);
@@ -133,17 +138,17 @@ int	main(int argc, char *argv[])
 	// test_int("%+010d", 36);
 	// test_int("%-+010d", 36);
 	// test_int("%+010x", 36);
-	test_int("%-.0d", 0);
-	test_int("%-.d", -6);
-	test_int("%-.2d", -36564954);
-	test_int("%-.5d", -36844);
-	test_int("%-10.5d", -100);
-	test_int("%-+010d", -36);
-	test_int("%-+010d", -36);
-	test_int("%-+010x", -36);
+	//test_int("%.0d", 0);
+	//test_int("%.d", -6);
+	//test_int("%.2d", -36564954);
+	//test_int("%.5d", -36844);
+	//test_int("%10.5d", -100);
+	//test_int("%+010d", -36);
+	//test_int("%+010d", -36);
+	//test_int("%+010x", -36);
 
 	// Pointers tests
-	test_int("%#d", -1);
+	//test_int("%#d", -1);
 	// test_int("%#d", 1);
 	// test_int("%#+d", 1);
 	// test_int("%#o", 1);
