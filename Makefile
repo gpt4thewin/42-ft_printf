@@ -6,14 +6,13 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/11 18:57:10 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/12 18:59:54 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT) -g
-# CFLAGS = -I $(IDIR) -I $(LIBFT) -g
+CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT)
 
 IDIR = includes
 SDIR = srcs
@@ -22,7 +21,8 @@ LIBFT = libft
 
 NAME = libftprintf.a
 
-DEPS = $(IDIR)/ft_printf.h
+DEPS = $(IDIR)/ft_printf.h \
+		$(IDIR)/ft_printf_types.h
 LIBFTDEPS = $(LIBFT)/libft.h
 
 OBJ = $(patsubst %.c,$(ODIR)/%.o,$(_SRC))
