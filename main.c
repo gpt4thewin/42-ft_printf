@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 18:02:41 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 19:00:13 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 15:24:35 by tavelino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,11 +118,11 @@ int	main(int argc, char *argv[])
 	// test_int("%+ u", 0);
 	// test_int("%+ d", 0);
 	// test_int("%.0o", 0);
-	test_int("%#.0o", 0);
-	test_int("%#.o", 0);
-	test_int("%#.0x", 0);
-	test_int("%#.x", 0);
-	test_int("%#x", 0);
+	//test_int("%#.0o", 0);
+	//test_int("%#.o", 0);
+	//test_int("%#.0x", 0);
+	//test_int("%#.x", 0);
+	//test_int("%#x", 0);
 
 	// Int precision tests
 	// test_int("%.0d", 0);
@@ -133,9 +133,17 @@ int	main(int argc, char *argv[])
 	// test_int("%+010d", 36);
 	// test_int("%-+010d", 36);
 	// test_int("%+010x", 36);
+	test_int("%-.0d", 0);
+	test_int("%-.d", -6);
+	test_int("%-.2d", -36564954);
+	test_int("%-.5d", -36844);
+	test_int("%-10.5d", -100);
+	test_int("%-+010d", -36);
+	test_int("%-+010d", -36);
+	test_int("%-+010x", -36);
 
 	// Pointers tests
-	// test_int("%#d", -1);
+	test_int("%#d", -1);
 	// test_int("%#d", 1);
 	// test_int("%#+d", 1);
 	// test_int("%#o", 1);
@@ -147,7 +155,7 @@ int	main(int argc, char *argv[])
 	// test_int("%p", 0xdead);
 
 	// Extra len tests
-	test_long("%lx", 4294967296);
+	//test_long("%lx", 4294967296);
 
 	// Percent sign
 	// test_noarg("%%", 0xdead);
