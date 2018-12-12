@@ -6,48 +6,43 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:53:22 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 17:48:18 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 15:55:31 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		parse_specifier(t_formatinfo *info, const char *restrict format, int *format_pos)
+static t_specifier	get_specifier(char c)
+{
+	t_specifier	specifiers[256];
+
+	ft_bzero(&specifiers, sizeof(specifiers));
+	specifiers['i'] = spec_int;
+	specifiers['d'] = spec_int;
+	specifiers['u'] = spec_uint;
+	specifiers['x'] = spec_hex;
+	specifiers['X'] = spec_hexup;
+	specifiers['o'] = spec_octal;
+	specifiers['f'] = spec_float;
+	specifiers['F'] = spec_float;
+	specifiers['s'] = spec_str;
+	specifiers['c'] = spec_char;
+	specifiers['p'] = spec_hex;
+	specifiers['%'] = spec_percent;
+	return (specifiers[(int)c]);
+}
+
+void				parse_specifier(t_formatinfo *info,
+							const char *restrict format,
+							int *pos)
 {
 	char		c;
 	t_specifier	spec;
 
-	c = format[*format_pos];
-	if (c == 'i' || c == 'd')
-		spec = spec_int;
-	else if (c == 'u')
-		spec = spec_uint;
-	else if (c == 'x')
-		spec = spec_hex;
-	else if (c == 'X')
-		spec = spec_hexup;
-	else if (c == 'o')
-		spec = spec_octal;
-	else if (c == 'f' || c == 'F')
-		spec = spec_float;
-	else if (c == 's')
-		spec = spec_str;
-	else if (c == 'c')
-		spec = spec_char;
-	else if (c == 'p')
-	{
-		spec = spec_hex;
+	c = format[*pos];
+	spec = get_specifier(c);
+	if (c == 'p')
 		info->flags |= FLAG_PREPOUND;
-	}
-	else if (c == '%')
-		spec = spec_percent;
-	else
-	{
-		ft_putstr("ft_printf error: Unknown specifier: ");
-		ft_putchar(c);
-		ft_putendl("");
-		exit(EXIT_FAILURE);
-	}
-	(*format_pos)++;
+	(*pos)++;
 	info->specifier = spec;
 }

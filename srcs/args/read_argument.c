@@ -6,13 +6,13 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 18:47:54 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 18:48:01 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 16:04:45 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-t_64		read_argument_signed(t_formatinfo *info, va_list ap)
+t_64	read_argument_signed(t_formatinfo *info, va_list ap)
 {
 	t_64	num;
 

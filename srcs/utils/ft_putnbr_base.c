@@ -6,13 +6,16 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 16:06:45 by tavelino          #+#    #+#             */
-/*   Updated: 2018/12/11 18:33:53 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 15:56:41 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		ft_convertnbr_base(t_u64 nbr, char *base, int base_len, t_output *output)
+static void		ft_convertnbr_base(t_u64 nbr,
+									char *base,
+									int base_len,
+									t_output *output)
 {
 	if (nbr >= (t_u64)base_len)
 	{

@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 16:26:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/11 18:47:52 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 16:27:21 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ static void		print_sign(t_formatinfo *info, t_64 num, t_output *output)
 **	Signed numbers variant.
 */
 
-void			print_number_generic(t_formatinfo *info, va_list ap, char *base, t_output *output)
+void			print_number_generic(t_formatinfo *info,
+										va_list ap,
+										char *base,
+										t_output *output)
 {
 	t_64		num;
 	t_u64		unum;
@@ -52,7 +55,7 @@ void			print_number_generic(t_formatinfo *info, va_list ap, char *base, t_output
 		unum = read_argument_unsigned(info, ap);
 	}
 	if (info->flags & FLAG_HASPRECISION && info->precision == 0 && unum == 0)
-		return;
+		return ;
 	out_init(&output2);
 	ft_putnbr_base(unum, base, &output2);
 	if (info->flags & FLAG_HASPRECISION)

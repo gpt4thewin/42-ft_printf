@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:02:58 by juazouz           #+#    #+#             */
-/*   Updated: 2018/11/30 15:04:53 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 15:44:47 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +19,9 @@
 
 void		print_float(t_formatinfo *info, va_list ap, t_output *output)
 {
-	(void)output;
-	(void)info;
 	double	num;
 
+	(void)output;
+	(void)info;
 	num = va_arg(ap, double);
 }
