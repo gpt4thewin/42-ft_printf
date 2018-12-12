@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/28 15:05:30 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 16:00:15 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 16:55:07 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static int	parse_and_print_argument(const char *restrict format,
 
 	ft_bzero(&formatinfo, sizeof(formatinfo));
 	parse(format, pos, &formatinfo);
+	if (formatinfo.specifier == spec_none)
+		return (0);
 	return (print_argument(&formatinfo, ap));
 }
 
