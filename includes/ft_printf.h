@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 16:07:25 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 18:42:00 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,18 @@ void		print_prepound(t_formatinfo *info, char *str,
 */
 
 void		parse(const char *restrict format, int *pos, t_formatinfo *info);
-void		parse_flags(t_formatinfo *info, const char *restrict str, int *pos);
-void		parse_width(t_formatinfo *info, const char *restrict str, int *pos);
-void		parse_precision(t_formatinfo *info,
+int			parse_flags(t_formatinfo *info, const char *restrict str, int *pos);
+int			parse_width(t_formatinfo *info, const char *restrict str, int *pos);
+int			parse_precision(t_formatinfo *info,
 							const char *restrict str,
 							int *pos);
-void		parse_length(t_formatinfo *info,
+int			parse_length(t_formatinfo *info,
 							const char *restrict str,
 							int *pos);
-void		parse_specifier(t_formatinfo *info,
-							const char *restrict str,
+int			parse_specifier(t_formatinfo *info,
+							const char *restrict format,
 							int *pos);
-int			parse_number(const char *restrict format, int *pos);
+int			parse_number(const char *restrict format, int *pos, int *num);
 
 /*
 **	Arguments reading.

@@ -6,13 +6,13 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:53:02 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 15:57:50 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 18:08:44 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		parse_length(t_formatinfo *info,
+int		parse_length(t_formatinfo *info,
 						const char *restrict format,
 						int *pos)
 {
@@ -29,10 +29,11 @@ void		parse_length(t_formatinfo *info,
 	else if (!ft_strncmp(str, "l", 1))
 		len = len_long;
 	else
-		return ;
+		return (0);
 	if (len == len_char || len == len_llong)
 		(*pos) += 2;
 	else if (len == len_long || len == len_short)
 		(*pos) += 1;
 	info->length = len;
+	return (1);
 }

@@ -6,30 +6,46 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:52:03 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 15:57:56 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 18:19:49 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#define MAP_SIZE 256
 
-void		parse_flags(t_formatinfo *info,
+static void	fill_map(char *map)
+{
+	ft_bzero(map, MAP_SIZE);
+	map['#'] = FLAG_PREPOUND;
+	map['0'] = FLAG_ZERO;
+	map['+'] = FLAG_PLUS;
+	map['-'] = FLAG_MINUS;
+	map[' '] = FLAG_SPACE;
+}
+
+int			parse_flags(t_formatinfo *info,
 						const char *restrict format,
 						int *pos)
 {
+	t_bool	any;
+	char	map[MAP_SIZE];
+	char	flag;
+	char	c;
+
+	fill_map(map);
+	any = false;
 	while (format[*pos] != '\0')
 	{
-		if (format[*pos] == '#')
-			info->flags |= FLAG_PREPOUND;
-		else if (format[*pos] == '0')
-			info->flags |= FLAG_ZERO;
-		else if (format[*pos] == '+')
-			info->flags |= FLAG_PLUS;
-		else if (format[*pos] == '-')
-			info->flags |= FLAG_MINUS;
-		else if (format[*pos] == ' ')
-			info->flags |= FLAG_SPACE;
+		c = format[*pos];
+		flag = map[(int)c];
+		if (flag != 0)
+		{
+			info->flags |= flag;
+			any = true;
+		}
 		else
-			return ;
+			return (any);
 		(*pos)++;
 	}
+	return (any);
 }

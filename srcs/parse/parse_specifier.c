@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:53:22 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 15:55:31 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/12 17:49:58 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static t_specifier	get_specifier(char c)
 	return (specifiers[(int)c]);
 }
 
-void				parse_specifier(t_formatinfo *info,
+int					parse_specifier(t_formatinfo *info,
 							const char *restrict format,
 							int *pos)
 {
@@ -41,8 +41,11 @@ void				parse_specifier(t_formatinfo *info,
 
 	c = format[*pos];
 	spec = get_specifier(c);
+	if (spec == spec_none)
+		return (0);
 	if (c == 'p')
 		info->flags |= FLAG_PREPOUND;
 	(*pos)++;
 	info->specifier = spec;
+	return (1);
 }
