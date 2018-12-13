@@ -3,14 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+         #
+#    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2018/12/13 14:27:13 by juazouz          ###   ########.fr        #
-=======
-#    Updated: 2018/12/13 15:52:52 by tavelino         ###   ########.fr        #
->>>>>>> origin/master
+#    Updated: 2018/12/13 16:08:59 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
