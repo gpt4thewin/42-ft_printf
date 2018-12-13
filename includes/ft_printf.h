@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 18:42:00 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/13 15:52:33 by tavelino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@
 **	Defines.
 */
 
-# define FLAG_PREPOUND		0x01
-# define FLAG_ZERO			0x02
-# define FLAG_PLUS			0x04
-# define FLAG_MINUS			0x08
-# define FLAG_SPACE			0x10
-# define FLAG_HASPRECISION	0x20
+# define FLAG_PREPOUND		0x01 // 0000 0001
+# define FLAG_ZERO			0x02 // 0000 0010
+# define FLAG_PLUS			0x04 // 0000 0100
+# define FLAG_MINUS			0x08 // 0000 1000
+# define FLAG_SPACE			0x10 // 0001 0000
+# define FLAG_HASPRECISION	0x20 // 0010 0000
 
 /*
 **	Types.
@@ -57,7 +57,7 @@ void		out_init(t_output *output);
 void		print_padding(t_formatinfo *formatinfo, int len, t_output *output);
 void		ft_putnbr_base(t_u64 nbr, char *base, t_output *output);
 int			ft_putnstr(char *str, int max);
-void		fill_nchar(t_output *output, int count, char c);
+void		out_fill(t_output *output, int count, char c);
 void		print_prepound(t_formatinfo *info, char *str,
 							va_list ap, t_output *out);
 

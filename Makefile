@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
+#    By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/11 18:57:10 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/13 15:52:52 by tavelino         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,10 +53,10 @@ _SRC =	core/ft_printf.c \
 		utils/out_init.c \
 		utils/out_putchar_len.c \
 		utils/out_putchar.c \
+		utils/out_fill.c \
 		utils/print_number_generic.c \
 		utils/print_padding.c \
 		utils/print_prepound.c \
-		utils/fill_nchar.c \
 		args/read_argument.c \
 		$(_LIBFTSRC)
 
