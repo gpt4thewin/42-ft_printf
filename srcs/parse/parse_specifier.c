@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:53:22 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 17:49:58 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/13 17:58:51 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ int					parse_specifier(t_formatinfo *info,
 	if (spec == spec_none)
 		return (0);
 	if (c == 'p')
+	{
+		info->length = len_ptr;
 		info->flags |= FLAG_PREPOUND;
+	}
 	(*pos)++;
 	info->specifier = spec;
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:07:02 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 16:08:03 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/13 17:58:45 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ enum							e_length
 	len_char,
 	len_short,
 	len_long,
-	len_llong
+	len_llong,
+	len_ptr,
 };
 
 struct							s_formatinfo
