@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_argument.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:31:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 16:02:46 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/13 15:52:10 by tavelino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	print_space_padding(t_formatinfo *formatinfo,
 		padchar = '0';
 	else
 		padchar = ' ';
-	fill_nchar(out, (formatinfo->width - len), padchar);
+	out_fill(out, (formatinfo->width - len), padchar);
 }
 
 /*

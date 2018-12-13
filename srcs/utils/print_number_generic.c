@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_number_generic.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 16:26:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 18:47:08 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/13 15:52:12 by tavelino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ void			print_number_generic(t_formatinfo *info,
 	out_init(&output2);
 	ft_putnbr_base(unum, base, &output2);
 	if (info->flags & FLAG_HASPRECISION)
-		fill_nchar(output, info->precision - output2.size, '0');
+		out_fill(output, info->precision - output2.size, '0');
 	else if (!(info->flags & FLAG_MINUS) && info->flags & FLAG_ZERO)
-		fill_nchar(output, info->width - output->size - output2.size, '0');
+		out_fill(output, info->width - output->size - output2.size, '0');
 	ft_putnbr_base(unum, base, output);
 }

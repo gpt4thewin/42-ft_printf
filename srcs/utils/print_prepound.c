@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_prepound.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 18:50:05 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/12 15:55:54 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/13 15:36:30 by tavelino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	print_prepound(t_formatinfo *info, char *str, va_list ap, t_output *out)
 		return ;
 	va_copy(ap2, ap);
 	num = read_argument_unsigned(info, ap2);
-	if (num != 0 || info->specifier == spec_octal)
+	if (num != 0)
 		out_putchar_len(out, str, ft_strlen(str));
 }
