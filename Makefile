@@ -6,13 +6,13 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/12 18:59:54 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/13 14:27:13 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT)
+CFLAGS = -Wall -Wextra -Werror -I $(IDIR) -I $(LIBFT) -g
 
 IDIR = includes
 SDIR = srcs
@@ -71,7 +71,8 @@ _LIBFTSRC = ft_bzero.c \
 			ft_putchar_fd.c \
 			ft_putendl.c \
 			ft_putendl_fd.c \
-			ft_max.c
+			ft_max.c \
+			ft_powf.c
 
 .PHONY: all clean fclean re
 
