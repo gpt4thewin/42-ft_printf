@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 16:53:22 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/13 17:58:51 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/14 13:27:02 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static t_specifier	get_specifier(char c)
 	specifiers['F'] = spec_float;
 	specifiers['s'] = spec_str;
 	specifiers['c'] = spec_char;
-	specifiers['p'] = spec_hex;
+	specifiers['p'] = spec_ptr;
 	specifiers['%'] = spec_percent;
 	return (specifiers[(int)c]);
 }
@@ -43,11 +43,6 @@ int					parse_specifier(t_formatinfo *info,
 	spec = get_specifier(c);
 	if (spec == spec_none)
 		return (0);
-	if (c == 'p')
-	{
-		info->length = len_ptr;
-		info->flags |= FLAG_PREPOUND;
-	}
 	(*pos)++;
 	info->specifier = spec;
 	return (1);

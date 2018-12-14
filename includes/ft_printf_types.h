@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:07:02 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/13 17:58:45 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/14 13:43:11 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef	long					t_s64;
 typedef float					t_f32;
 typedef double					t_f64;
 
-# define SPEC_COUNT 10
+# define SPEC_COUNT 11
 
 enum							e_specifier
 {
@@ -51,6 +51,7 @@ enum							e_specifier
 	spec_str,
 	spec_char,
 	spec_percent,
+	spec_ptr,
 };
 
 enum							e_length

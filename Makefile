@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/13 16:08:59 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/14 14:02:31 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ _SRC =	core/ft_printf.c \
 		types/print_str.c \
 		types/print_uint.c \
 		types/print_percent.c \
+		types/print_ptr.c \
 		utils/ft_putnbr_base.c \
 		utils/ft_putnstr.c \
 		utils/out_init.c \
@@ -56,7 +57,7 @@ _SRC =	core/ft_printf.c \
 		utils/out_fill.c \
 		utils/print_number_generic.c \
 		utils/print_padding.c \
-		utils/print_prepound.c \
+		utils/print_prepound_notnull.c \
 		args/read_argument.c \
 		$(_LIBFTSRC)
 

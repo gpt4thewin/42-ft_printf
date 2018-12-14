@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_argument.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:31:31 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/13 15:52:10 by tavelino         ###   ########.fr       */
+/*   Updated: 2018/12/14 13:42:58 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static void	(*get_func(t_specifier spec))(t_formatinfo*, va_list, t_output*)
 	func[spec_str] = print_str;
 	func[spec_char] = print_char;
 	func[spec_percent] = print_percent;
+	func[spec_ptr] = print_ptr;
 	return (func[spec]);
 }
 
