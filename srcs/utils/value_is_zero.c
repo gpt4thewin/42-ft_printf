@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_prepound_notnull.c                           :+:      :+:    :+:   */
+/*   value_is_zero.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/14 14:00:02 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/18 12:22:43 by juazouz          ###   ########.fr       */
+/*   Created: 2018/12/18 11:51:31 by juazouz           #+#    #+#             */
+/*   Updated: 2018/12/18 11:51:38 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-**	Prints the specified prepound string if the value is not null.
-*/
-
-void	print_prepound_notnull(t_formatinfo *info, char *str,
-								va_list ap, t_output *out)
+int		value_is_zero(t_formatinfo *info, va_list ap)
 {
-	if (!value_is_zero(info, ap))
-		out_putchar_len(out, str, ft_strlen(str));
+	t_u64	num;
+	va_list	ap2;
+
+	va_copy(ap2, ap);
+	num = read_argument_unsigned(info, ap2);
+	return (num == 0);
 }

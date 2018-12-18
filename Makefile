@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/14 14:02:31 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/18 11:54:50 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ _SRC =	core/ft_printf.c \
 		utils/print_number_generic.c \
 		utils/print_padding.c \
 		utils/print_prepound_notnull.c \
+		utils/value_is_zero.c \
 		args/read_argument.c \
 		$(_LIBFTSRC)
 

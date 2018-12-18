@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 11:27:18 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/14 14:02:22 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/18 11:52:03 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int			ft_putnstr(char *str, int max);
 void		out_fill(t_output *output, int count, char c);
 void		print_prepound_notnull(t_formatinfo *info, char *str,
 									va_list ap, t_output *out);
+int			value_is_zero(t_formatinfo *info, va_list ap);
 
 /*
 **	Parse.

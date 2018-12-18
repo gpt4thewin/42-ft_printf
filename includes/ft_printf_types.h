@@ -6,7 +6,7 @@
 /*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/12 16:07:02 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/14 13:43:11 by juazouz          ###   ########.fr       */
+/*   Updated: 2018/12/18 12:04:32 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ struct							s_output
 {
 	int		fd;
 	size_t	size;
+	char	*buf;
 };
 
 #endif

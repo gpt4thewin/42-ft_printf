@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tavelino <tavelino@student.42.fr>          +#+  +:+       +#+        */
+/*   By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 18:15:24 by juazouz           #+#    #+#             */
-/*   Updated: 2018/12/13 15:17:04 by tavelino         ###   ########.fr       */
+/*   Updated: 2018/12/17 17:51:42 by juazouz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,11 @@ void		parse(const char *restrict format,
 					int *pos,
 					t_formatinfo *info)
 {
-	while (format[*pos])
-	{
-		if (parse_specifier(info, format, pos))
-			break ;
-		if (!parse_flags(info, format, pos) &&
-			!parse_width(info, format, pos) &&
-			!parse_precision(info, format, pos) &&
-			!parse_length(info, format, pos))
-		{
-			(*pos)++;
-		}
-	}
+	parse_flags(info, format, pos);
+	parse_width(info, format, pos);
+	parse_precision(info, format, pos);
+	parse_length(info, format, pos);
+	parse_specifier(info, format, pos);
 	if (info->specifier != spec_int)
 	{
 		info->flags &= 0xff ^ FLAG_PLUS;
