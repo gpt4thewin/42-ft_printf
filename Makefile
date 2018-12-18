@@ -6,7 +6,7 @@
 #    By: juazouz <juazouz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/17 17:47:32 by juazouz           #+#    #+#              #
-#    Updated: 2018/12/18 11:54:50 by juazouz          ###   ########.fr        #
+#    Updated: 2018/12/18 13:04:18 by juazouz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,14 +51,14 @@ _SRC =	core/ft_printf.c \
 		types/print_ptr.c \
 		utils/ft_putnbr_base.c \
 		utils/ft_putnstr.c \
-		utils/out_init.c \
-		utils/out_putchar_len.c \
-		utils/out_putchar.c \
-		utils/out_fill.c \
 		utils/print_number_generic.c \
 		utils/print_padding.c \
 		utils/print_prepound_notnull.c \
 		utils/value_is_zero.c \
+		output/out_init.c \
+		output/out_putchar_len.c \
+		output/out_putchar.c \
+		output/out_fill.c \
 		args/read_argument.c \
 		$(_LIBFTSRC)
 
